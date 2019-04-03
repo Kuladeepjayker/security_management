@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/vehicle.css' %}" >
+    <title></title>
+  </head>
+  <body>
+      <form class="form-box" action="get_excel/" method="post">
+        {% csrf_token %}
+        <h1>EXPORT DATA:</h1>
+        <h3>CATEOGRY:</h3>
+          <input type="radio" name="category" value="visitor">Visitors
+          <input type="radio" name="category" value="staff">Staff Vehicles
+          <input type="radio" name="category" value="other">Other Vehicles
+        <br>
+        <h3>FROM:</h3>
+        <div class="textbox">
+          <input type="date" name="from" value="">
+        </div>
+
+        <h3>TO:</h3>
+        <div class="textbox">
+          <input type="date" name="to" value="">
+        </div>
+        <input type="submit" value="GET DATA" class="btn">
+      </form>
+  </body>
+</html>

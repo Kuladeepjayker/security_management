@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{%static '/css/vehicle.css' %}">
+    <title></title>
+  </head>
+  <body>
+    <form action="/check_for_exit/" method="post" class="form-box">
+      {% csrf_token %}
+      <h1>EXIT FORM:</h1>
+      <h3>CATEGORY:</h3>
+      <input type="radio" name="category" value="visitor" required='true'>Visitors
+      <input type="radio" name="category" value="staff" >Staff Vehicles
+      <input type="radio" name="category" value="other">Other Vehicles
+      <br>
+      <div class="textbox">
+        <input type="text" name="receipt_number" required = 'true' placeholder="Receipt Number">
+      </div>
+      <input type="submit" value="GET DATA" class="btn">
+    </form>
+  </body>
+</html>

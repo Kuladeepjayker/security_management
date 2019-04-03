@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% if not visitors %}
+      Visitor Not found
+    {% else %}
+    {{visitors}}
+      Receipt_number: {{visitors.id}}<br>
+      Security incharge: {{visitors.user}}<br>
+      Name: {{visitors.name}}<br>
+      Phone Number: {{visitors.phone_number}}<br>
+      Vehicle Number: {{visitors.vehicle_number}}<br>
+      Entrance Time: {{visitors.entrance_time}}<br>
+      <form class="" action="/confirm_exit/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="type" value="visitor">
+        <input type="hidden" name="receipt_no" value="{visitor.id}">
+        <input type="submit" value="CONFIRM EXIT">
+      </form>
+    {% endif%}
+  </body>
+</html>

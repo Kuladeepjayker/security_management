@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/vehicle.css' %}">
+   </head>
+<body>
+  <script type="text/javascript">
+    function typeCheck() {
+        if (document.getElementById('guest').checked) {
+            document.getElementById('guestChecked').style.display = 'block';
+        }
+        else document.getElementById('guestChecked').style.display = 'none';
+    }
+  </script>
+  <form action="staff_vehicle_details/" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="user_id" value="{{ request.session.user_name }}"/>
+    <div class="form-box">
+      <h1>STAFF VEHICLE ENTRY</h1>
+      <div class="textbox">
+        <input type="text" placeholder="Name" name="staff_name">
+      </div>
+        <input type="radio" name="type" onclick="javascript:typeCheck();" id = "regular" value="Regular"checked> Regular
+        <input type="radio" name="type" onclick="javascript:typeCheck();" id = "guest"value="Guest">Guest
+
+      <div class="textbox">
+        <input type="text" placeholder="Phone Number" name="phone_number">
+      </div>
+      <div class="textbox">
+        <input type="text" placeholder="Vehicle Number" name="staff_vehicle_number">
+      </div>
+      <div id="guestChecked" style="display:none">
+        <div class="textbox">
+          <input type="text" placeholder="Staff to contact" name="staff_to_contact">
+        </div>
+        <div class="textbox">
+          <input type="text" placeholder="Staff phone number" name="s_phone_number" class = "textbox">
+        </div>
+        <div class="textbox">
+          <textarea rows="4" col="15" name="purpose" placeholder="purpose" class = "textbox"></textarea>
+        </div>
+
+      </div>
+    <br><br>
+    <input type="submit" class="btn" value="SUBMIT">
+  </form>
+</body>
+</html>

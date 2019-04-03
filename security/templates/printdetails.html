@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <center>
+      <div id="section-to-print">
+        <table>
+          <tr>
+            <td>RECEIPT NUMBER:</td>
+            <td>{{visitor_details.id}}</td>
+          </tr>
+          <tr>
+            <td>NAME:</td>
+            <td>{{visitor_details.name}}</td>
+          </tr>
+          <tr>
+            <td>PHONE NUMBER:</td>
+            <td>{{visitor_details.phone_number}}</td>
+          </tr>
+            <tr>
+              <td>STAFF CONTACTED:</td>
+              <td>{{visitor_details.staff_to_contact}}</td>
+            </tr>
+            <tr>
+              <td>STAFF PHONE NUMBER:</td>
+              <td>{{visitor_details.staff_phone_number}}</td>
+            </tr>
+          <tr>
+            <td>ENTRANCE TIME:</td>
+            <td>{{visitor_details.entrance_time}}</td>
+          </tr>
+          <tr>
+            <td>Vehicle Number:</td>
+            <td>{{visitor_details.vehicle_number}}</td>
+          </tr>
+          <tr>
+            <td>SECURITY INCHARGE:</td>
+            <td>{{visitor_details.user_id}}</td>
+          </tr>
+        </table>
+      </div>
+      <form action="/home/" method="POST">
+        {% csrf_token %}
+        <input type="submit" name="" value="PRINT" onclick="window.print()">
+      </form>
+    </center>
+  </body>
+</html>

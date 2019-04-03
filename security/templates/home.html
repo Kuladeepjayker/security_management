@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static "css/home.css" %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+  </head>
+  <body>
+    <a class="logout-btn" href="/logout/">LOGOUT</a>
+    <div class="middle">
+      <a class="btn" href="/visitor/">
+        <i class="fas fa-user"></i>
+      </a>
+      <a class="btn" href="/staff_vehicle/">
+      <i class="fas fa-car"></i>
+      </a>
+      <a class="btn" href="/other_vehicle/">
+        <i class="fas fa-truck"></i>
+      </a>
+      <a class="btn" href="/exit/">
+        <i class="">EXIT</i>
+      </a>
+      <br><br>
+      <a class="button" href="/export_data/">
+        <i class="">EXPORT DATA</i>
+      </a>
+    </div>
+  </body>
+</html>

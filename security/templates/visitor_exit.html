@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/{% static 'css/vehicle.css' %}">
+    <title></title>
+  </head>
+  <body>
+    {% if not visitors %}
+      <center>
+        <h1>
+          Visitor Not found
+          <a href="/home/">Click Here</a>
+        </h1>
+      </center>
+    {% else%}
+      <div class="form-box">
+        <div class="textbox">
+          Receipt_number: {{visitors.id}}<br>
+        </div>
+        <div class="textbox">
+          Security incharge: {{visitors.user}}<br>
+        </div>
+        <div class="textbox">
+          Security incharge: {{visitors.user}}<br>
+        </div>
+        <div class="textbox">
+          Name: {{visitors.name}}<br>
+        </div>
+        <div class="textbox">
+          Phone Number: {{visitors.phone_number}}<br>
+        </div>
+        <div class="textbox">
+          Entrance Time: {{visitors.entrance_time}}<br>
+        </div>
+        <form class="" action="/confirm_exit/" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="type" value="visitor">
+          <input type="hidden" name="receipt_no" value="{{visitors.id}}">
+          <input type="submit" value="CONFIRM EXIT">
+        </form>
+      {% endif%}
+      </div>
+  </body>
+</html>

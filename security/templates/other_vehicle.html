@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/vehicle.css' %}">
+   </head>
+<body>
+  <form action="other_vehicle_details/" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="user_id" value="{{ request.session.user_name }}"/>
+    <div class="form-box">
+      <h1>OTHER VEHICLE ENTRY</h1>
+      <div class="textbox">
+        <input type="text" placeholder="Name" name="visitor_name">
+      </div>
+      <div class="textbox"><input type="text" placeholder="Vehicle Number" name="visitor_vehicle_number">
+      </div>
+      <div class="textbox"><input type="text" placeholder="Phone Number" name="visitor_phone_number">
+      </div>
+      <div class="textbox"><input type="text" placeholder="Staff to Contact" name="staff_to_contact">
+      </div>
+      <div class="textbox"><input type="text" placeholder="Staff Phone Number" name="staff_phone_number">
+      </div>
+      <div class="textbox">
+      <textarea rows="4" col="15" name="purpose" class="textbox" placeholder="Purpose"></textarea>
+      </div>
+    <br><br>
+    <input type="submit" class="btn" value="submit">
+  </form>
+</body>
+</html>

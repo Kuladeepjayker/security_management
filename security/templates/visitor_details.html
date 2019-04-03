@@ -1,0 +1,37 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/vehicle.css' %}">
+  </head>
+<body>
+    <div class="form-box">
+      <form action="visitor_details/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="user_id" value="{{ request.session.user_name }}"/>
+        <div class="form-box">
+        <center><h1>VISITOR DETAILS ENTRY</h1></center>
+        <div class="textbox">
+          <br><input type="text" placeholder="Name" name="visitor_name">
+        </div>
+        <div class="textbox">
+          <br><input type="text" placeholder="Phone Number" name="phone_number">
+        </div>
+        <div class="textbox">
+          <br><input type="text" placeholder="Staff to Contact" name="staff_name">
+        </div>
+        <div class="textbox">
+          <br><input type="text" placeholder="Staff's Phone Number" name="staff_phone_number">
+        </div>
+        <div class="textbox">
+        <textarea rows="4" col="15" name="purpose" class="textbox" placeholder="Purpose"></textarea>
+        </div>
+      <br><br>
+      <input type="submit" class="btn" value="submit">
+      </form>
+    </div>
+</body>
+</html>
